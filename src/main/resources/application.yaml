@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: categories
+  datasource:
+    url: jdbc:postgresql://localhost:5432/springcategories
+    username: postgres
+    password: 2003
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
