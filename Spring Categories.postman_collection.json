@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "501a5c05-59f9-441d-92b5-b64553aa95d0",
+		"name": "Spring Categories",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26975379"
+	},
+	"item": [
+		{
+			"name": "Добавление категории",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    // Для добавление корневой категории:\r\n    // \"text\": \"Авто\"\r\n\r\n    // Для добавление вложенной категории:\r\n    // \"text\": \"Легковые\",\r\n    // \"parent\": \"302\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/category/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Просмотр категорий в древовидном формате",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/category/tree"
+			},
+			"response": []
+		},
+		{
+			"name": "Просмотр всех категорий",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": "http://localhost:8080/category/all"
+			},
+			"response": []
+		},
+		{
+			"name": "Просмотр категории",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category?id=57",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "57"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновление категории",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    // Для изменения категории, передать text в тело, id в params\r\n    \"text\": \"Грузовые\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/category?id=57",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "57"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Смена родителя",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category/set_parent?id=305&parentId=303",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"set_parent"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "305"
+						},
+						{
+							"key": "parentId",
+							"value": "303"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обмен местами",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category/exchange?id_A=305&id_B=303",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"exchange"
+					],
+					"query": [
+						{
+							"key": "id_A",
+							"value": "305"
+						},
+						{
+							"key": "id_B",
+							"value": "303"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление категории",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category?id=256",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "256"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
